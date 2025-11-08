@@ -16,13 +16,14 @@ def subtract(a, b):
 def multiply(a, b):
     return a * b
 
+
 # TODO: Implement this function
 def divide(a, b):
-    pass
+    return a / b
 
 # TODO: Implement this function
 def power(a, b):
-    pass
+    return a ** b
 
 while True:
     print("\n---- CALCULATOR MENU ----")
@@ -46,6 +47,7 @@ while True:
     try:
         num1 = float(input("Enter first number: "))
         num2 = float(input("Enter second number: "))
+
     except ValueError:
         print("Invalid input! Please enter numeric values.")
         continue
@@ -56,8 +58,12 @@ while True:
         print("Result:", subtract(num1, num2))
     elif choice == '3':
         print("Result:", multiply(num1, num2))
-
+    
     elif choice == '4':
-        print("Result:", divide(num1, num2))  
+        try:
+            print("Result:", divide(num1, num2))
+        except ZeroDivisionError:
+            print("Invalid input! Division by zero is not allowed.")
+        continue
     elif choice == '5':
         print("Result:", power(num1, num2))   
